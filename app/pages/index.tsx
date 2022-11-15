@@ -129,7 +129,7 @@ export default function Home() {
         return (
           <button 
             className={styles.button} 
-            disabled="true"
+            disabled
           >
             Loading...
           </button>
