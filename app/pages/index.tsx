@@ -10,7 +10,7 @@ export default function Home() {
   const [joinedWhitelist, setJoinedWhitelist] = useState(false);
   const [loading, setLoading] = useState(false);
   const [numberOfWhitelisted, setNumberOfWhitelisted] = useState(0);
-  const web3ModalRef = useRef();
+  const web3ModalRef = useRef<any>();
 
   /**
    * @param {*} needSigner - True if you need the signer, default false otherwise
@@ -90,8 +90,9 @@ export default function Home() {
         abi,
         signer
       );
-
-      const address = await signer.getAddress();
+      
+      // @ts-ignore-line
+      const address = await signer.getAddress(); 
       const _joinedWhitelist = await whitelistContract.whitelistedAddresses(address);
       setJoinedWhitelist(_joinedWhitelist);
     } catch (err) {
